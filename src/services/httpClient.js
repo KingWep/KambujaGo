@@ -1,9 +1,6 @@
 import { config } from '../constants/config'
 
-export const httpClient = async <T>(
-  path: string,
-  options: RequestInit = {},
-): Promise<T> => {
+export const httpClient = async (path, options = {}) => {
   const response = await fetch(`${config.apiBaseUrl}${path}`, {
     ...options,
     headers: { 'Content-Type': 'application/json', ...options.headers },
@@ -13,5 +10,5 @@ export const httpClient = async <T>(
     throw new Error(`Request failed with status ${response.status}`)
   }
 
-  return response.json() as Promise<T>
+  return response.json()
 }

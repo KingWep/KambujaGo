@@ -5,4 +5,4 @@ export const routes = {
   tours: '/tours',
   bookings: '/bookings',
   checkout: '/checkout',
-} as const
+}

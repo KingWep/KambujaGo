@@ -1,5 +1,5 @@
-export const formatDateRange = (start: Date, end: Date): string =>
+export const formatDateRange = (start, end) =>
   `${start.toLocaleDateString()} - ${end.toLocaleDateString()}`
 
-export const durationInDays = (start: Date, end: Date): number =>
+export const durationInDays = (start, end) =>
   Math.max(0, Math.ceil((end.getTime() - start.getTime()) / 86_400_000))
