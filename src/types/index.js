@@ -1,1 +1,0 @@
-export { currencies } from './common'
