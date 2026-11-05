@@ -1,9 +1,14 @@
-import React from 'react'
 
-const App = () => {
+import DashboardPage from './Role/Admin/page/DashboardPage'
+import AdminRoutes from './Role/Admin/AdminRoutes'
+
+function App() {
   return (
-    <div className='w-[50%] m-auto bg-amber-600 text-2xl text-white font-bold'>
-      <h1 className=' p-4 text-center'>Hello , world</h1>
+    <div>
+      {/* <AdminSidebar />
+      <AdminNavbar /> */}
+      {/* <DashboardPage></DashboardPage> */}
+      <AdminRoutes/>
     </div>
   )
 }
