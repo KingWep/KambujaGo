@@ -1,9 +1,12 @@
-import {
-  PanelLeftClose,
-  Bell,
-} from "lucide-react";
+import {PanelLeftClose, Bell,} from "lucide-react";
+import SearchButton from "../../../components/ui/SearchButton";
+import { useState } from "react";
 
 function AdminNavbar({toggleSidebar,title}) {
+
+  const [query,setQuery] = useState("");
+
+  
   return (
     <div className="h-24 bg-white border-b border-gray-200 flex items-center justify-between px-12">
       
@@ -35,6 +38,11 @@ function AdminNavbar({toggleSidebar,title}) {
       {/*  right */}
       <div className="flex items-center gap-8">
         {/* notification */}
+        <SearchButton
+          value={query}
+          onChange={(val) => setQuery(val)} 
+          Placeholder="រកអីក៏បាន..."/>
+          
         <button className="relative text-slate-500 hover:text-blue-600">
           <Bell size={26} />
           <span className="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 rounded-full border-2 border-white"></span>
