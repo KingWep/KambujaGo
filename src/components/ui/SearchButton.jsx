@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from 'react';
 
-const SearchField = ({
+const SearchBuuton = ({
   value,
   onChange,
   placeholder = "Search...",
@@ -98,4 +98,4 @@ const SearchField = ({
   );
 };
 
-export default SearchField;
+export default SearchBuuton;
