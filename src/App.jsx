@@ -1,21 +1,12 @@
-
-import DashboardPage from './Role/Admin/page/DashboardPage'
+import { useLocation } from 'react-router-dom'
 import AdminRoutes from './Role/Admin/AdminRoutes'
-import SearchButton from './components/ui/SearchButton'
-import { useState } from 'react'
+import UserRoutes from './routes/UserRoutes'
 
 function App() {
-const [query,setQery] = useState("");
+  const { pathname } = useLocation()
+  const isAdmin = pathname === '/admin' || pathname.startsWith('/admin/')
 
-  return (
-    <div>
-      {/* <AdminSidebar />
-      <AdminNavbar /> */}
-      {/* <DashboardPage></DashboardPage> */}
-      <AdminRoutes/>
-      
-    </div>
-  )
+  return isAdmin ? <AdminRoutes /> : <UserRoutes />
 }
 
 export default App
