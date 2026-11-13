@@ -1,0 +1,139 @@
+/* SearchButton – scoped CSS module (class names are hashed, no clashes) */
+.form {
+  --sb-primary: #0d47a1;
+  --sb-sky: #42a5f5;
+  --sb-accent: #ff9800;
+  --sb-text: #1e293b;
+  --sb-muted: #64748b;
+  --sb-border: #cbd5e1;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: var(--sb-width, 100%);
+  max-width: 100%;
+  margin: 0;
+}
+
+.field {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 14px;
+  color: var(--sb-muted);
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.field:focus-within .icon {
+  color: var(--sb-primary);
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 44px;
+  padding: 0 40px 0 42px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--sb-text);
+  background: #fff;
+  border: 1px solid var(--sb-border);
+  border-radius: 999px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input::placeholder {
+  color: #94a3b8;
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--sb-sky);
+}
+
+.input:focus {
+  border-color: var(--sb-primary);
+  box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.25);
+}
+
+.input:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+/* hide the browser's own clear (x) so only ours shows */
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.clear {
+  position: absolute;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--sb-muted);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.clear:hover {
+  background: #eff6ff;
+  color: var(--sb-primary);
+}
+
+.submit {
+  flex-shrink: 0;
+  height: 44px;
+  padding: 0 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--sb-primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit:hover:not(:disabled) {
+  background: #0a3a85;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(13, 71, 161, 0.25);
+}
+
+.submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submit:focus-visible,
+.clear:focus-visible {
+  outline: 2px solid var(--sb-sky);
+  outline-offset: 2px;
+}
+
+@media (max-width: 575.98px) {
+  .submit {
+    padding: 0 1rem;
+  }
+}
