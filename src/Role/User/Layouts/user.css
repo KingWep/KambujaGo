@@ -23,7 +23,7 @@
   box-shadow: 0 2px 12px rgba(13, 71, 161, 0.08);
 }
 .kg-navbar-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 72px; }
-.kg-brand { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; }
+.kg-brand { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; text-decoration: none; }
 .kg-logo { height: 64px; width: auto; max-width: 200px; object-fit: contain; }
 .kg-brand-text { font-weight: 800; font-size: 1.35rem; color: var(--kg-primary); }
 
@@ -84,9 +84,8 @@
 .kg-notif span { color: var(--kg-muted); }
 
 .kg-search { border-top: 1px solid var(--kg-border); background: #fff; animation: kg-pop 0.15s ease-out; }
-.kg-search-row { display: flex; align-items: center; gap: 0.75rem; padding-top: 0.75rem; padding-bottom: 0.75rem; color: var(--kg-muted); }
-.kg-search-row input { flex: 1; min-width: 0; border: 0; outline: 0; font-size: 1rem; background: transparent; color: var(--kg-text); }
-
+.kg-search-row { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+  
 /* Mobile menu */
 .kg-mobile { max-height: 0; overflow: hidden; background: #fff; transition: max-height 0.3s ease; }
 .kg-mobile.is-open { max-height: calc(100vh - 72px); overflow-y: auto; border-top: 1px solid var(--kg-border); }
@@ -107,6 +106,7 @@
 .kg-btn-light { background: rgba(255, 255, 255, 0.92); color: var(--kg-primary); }
 
 /* Hero */
+
 .kg-hero { position: relative; display: flex; align-items: center; min-height: 460px; background-size: cover; background-position: center; color: #fff; }
 .kg-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8, 36, 84, 0.88) 0%, rgba(8, 36, 84, 0.55) 55%, rgba(8, 36, 84, 0.25) 100%); }
 .kg-hero-content { position: relative; padding-top: 3rem; padding-bottom: 3rem; }

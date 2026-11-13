@@ -4,17 +4,18 @@ import { Search, Menu, X, CalendarCheck } from "lucide-react";
 import UserDropdown from "../Components/UserDropdown";
 import NotificationDropdown from "../Components/NotificationDropdown";
 import MobileMenu from "../Components/MobileMenu";
+import SearchButton from "../../../components/ui/SearchButton";
 
 import logo from "../../../assets/images/kampuja-go-logo.jpg";
 
 export const navLinks = [
-  { to: "/", label: "Home", end: true },
-  { to: "/destinations", label: "Destinations" },
-  { to: "/hotels", label: "Hotels" },
-  { to: "/motorides", label: "MotoRides" },
-  { to: "/car-rental", label: "Car Rental" },
-  { to: "/about", label: "About Us" },
-  { to: "/contact", label: "Contact Us" },
+  { to: "/", label: "ទំព័រដើម", end: true },
+  { to: "/destinations", label: "គោលដៅ" },
+  { to: "/hotels", label: "សណ្ឋាគារ" },
+  { to: "/motorides", label: "ការជួល ម៉ូតូ" },
+  { to: "/car-rental", label: "ការជួល​​ រថយន្ត" },
+  { to: "/about", label: "អំពីយើង" },
+  { to: "/contact", label: "ទំនាក់ទំនង" },
 ];
 
 function UserNavbar() {
@@ -24,9 +25,8 @@ function UserNavbar() {
   const navigate = useNavigate();
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const q = query.trim();
+  const handleSearch = (text) => {
+    const q = text.trim();
     navigate(q ? `/destinations?q=${encodeURIComponent(q)}` : "/destinations");
     setSearchOpen(false);
     setQuery("");
@@ -37,6 +37,7 @@ function UserNavbar() {
       <div className="kg-container kg-navbar-row">
         <Link to="/" className="kg-brand" onClick={closeMobile} aria-label="Kampuja Go home">
           <img src={logo} alt="Kampuja Go" className="kg-logo" />
+          <span className="kg-brand-text">KPJG</span>
         </Link>
 
         <nav className="kg-links" aria-label="Main navigation">
@@ -59,7 +60,7 @@ function UserNavbar() {
           </button>
           <NotificationDropdown />
           <Link to="/my-bookings" className="kg-bookings-btn">
-            <CalendarCheck size={18} /> <span>My Bookings</span>
+            <CalendarCheck size={18} /> <span>ការកក់ របស់ខ្ញុំ</span>
           </Link>
           <UserDropdown />
           <button
@@ -75,19 +76,18 @@ function UserNavbar() {
       </div>
 
       {searchOpen && (
-        <form className="kg-search" onSubmit={handleSearch}>
+        <div className="kg-search">
           <div className="kg-container kg-search-row">
-            <Search size={18} />
-            <input
+            <SearchButton
               autoFocus
-              type="search"
-              placeholder="Search destinations, hotels, rides..."
+              showButton
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={setQuery}
+              onSubmit={handleSearch}
+              placeholder="Search destinations, hotels, rides..."
             />
-            <button type="submit" className="kg-btn kg-btn-primary">Search</button>
           </div>
-        </form>
+        </div>
       )}
 
       <MobileMenu open={mobileOpen} links={navLinks} onNavigate={closeMobile} />

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Hotel, Bike, Car } from "lucide-react";
-import heroBanner from "../../../../../assets/images/hero-banner.jpg";
-
+import heroBanner from "../../../../../assets/images/herobanner.jpg";
 const quickLinks = [
   { to: "/hotels", label: "Hotels", text: "Stay somewhere great", icon: Hotel },
   { to: "/motorides", label: "MotoRides", text: "Ride at your own pace", icon: Bike },
@@ -14,17 +13,17 @@ function HomePage() {
       <section className="kg-hero" style={{ backgroundImage: `url(${heroBanner})` }}>
         <div className="kg-hero-overlay" />
         <div className="kg-container kg-hero-content">
-          <h1 className="kg-hero-title">Explore the Kingdom of Wonder</h1>
-          <p className="kg-hero-text">
-            From Angkor Wat to the southern islands, book hotels, rides and
-            rentals for your Cambodian adventure in one place.
+          <h1 className="kg-hero-title">ស្វែងយល់ពីនគរអច្ឆរិយៈ</h1>
+          <p className="kg-hero-text Kantumruy Pro font">
+           ចាប់ពីប្រាសាទអង្គរវត្ត រហូតដល់កោះនានានៅភាគខាងត្បូង អ្នកអាចកក់សណ្ឋាគារ សេវាកម្មដឹកជញ្ជូន
+            និងសេវាកម្មជួលផ្សេងៗ សម្រាប់ការធ្វើដំណើរផ្សងព្រេងរបស់អ្នកនៅក្នុងប្រទេសកម្ពុជា បាននៅកន្លែងតែមួយ។
           </p>
           <div className="kg-hero-actions">
             <Link to="/destinations" className="kg-btn kg-btn-accent">
-              Explore Destinations <ArrowRight size={18} />
+             ស្វែងរកគោលដៅ របស់អ្នក <ArrowRight size={18} />
             </Link>
             <Link to="/hotels" className="kg-btn kg-btn-light">
-              Find Hotels
+              ស្វែងរកសណ្ឋាគារ
             </Link>
           </div>
         </div>
