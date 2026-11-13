@@ -2,9 +2,6 @@ import React from 'react';
 import { PlusIcon } from '../../../components/ui/Icons';
 import { Button } from '../../../components/ui/Button';
 
-/**
- * Reusable Business Owner Operations Header Banner (matching Image 2)
- */
 export function BusinessOwnerHeader({
   badgeText = 'PARTNER OPERATIONS',
   title = 'Business Owner Dashboard',

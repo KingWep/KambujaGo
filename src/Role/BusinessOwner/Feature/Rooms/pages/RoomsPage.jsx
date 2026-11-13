@@ -4,9 +4,6 @@ import Button from '../../../../../components/ui/Button';
 import Badge from '../../../../../components/ui/Badge';
 import { BedIcon, PlusIcon } from '../../../../../components/ui/Icons';
 
-/**
- * Rooms Management Page (Product - Stays)
- */
 export function RoomsPage() {
   const rooms = [
     { id: 1, name: 'Deluxe Pool Villa', property: 'Angkor Heritage Sanctuary', price: '$120/night', status: 'Active', badgeVariant: 'green' },

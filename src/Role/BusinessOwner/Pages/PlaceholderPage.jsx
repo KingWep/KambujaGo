@@ -3,9 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Card from '../../../components/ui/Card';
 import Button from '../../../components/ui/Button';
 
-/**
- * Reusable Placeholder Page for Feature Routes
- */
 export function PlaceholderPage({ title, description, icon = null }) {
   const navigate = useNavigate();
 

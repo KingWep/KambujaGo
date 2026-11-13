@@ -19,17 +19,6 @@ import {
 } from '../../../components/ui/Icons';
 import './BusinessOwner.css';
 
-/**
- * Reusable Business Owner Sidebar
- *
- * Implements the clean layout from Image 1:
- * - Top Header: Circular Avatar with glow + Brand Name + "Hello, KimSan" with verified badge
- * - Grouped Navigation Categories (Operations, Inventory & Fleet, System)
- * - Active item: Rounded white pill with vibrant blue text
- * - Protruding Collapse/Expand tab (<< / >>) on the right edge
- * - Bottom: Clean "Sign Out" button (Image 1 "ចាកចេញ")
- * - Connected with React Router routes
- */
 export function BusinessOwnerSidebar({
   activeKey = 'dashboard',
   onSelectKey = () => {},
@@ -49,7 +38,6 @@ export function BusinessOwnerSidebar({
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Navigation categories with React Router routes
   const menuSections = [
     {
       title: 'Operations',
@@ -95,7 +83,6 @@ export function BusinessOwnerSidebar({
       }`}
       aria-label="Sidebar Navigation"
     >
-      {/* Protruding Collapse / Expand Tab Button (Image 1 << / >>) */}
       <button
         type="button"
         onClick={onToggleCollapse}
@@ -110,7 +97,6 @@ export function BusinessOwnerSidebar({
         )}
       </button>
 
-      {/* Top Header: Avatar + Brand Name + "Hello, KimSan" (Image 1) */}
       <div className="bo-sidebar-header">
         <div className="bo-header-avatar-ring" title={user.name}>
           {user.avatar ? (
@@ -153,7 +139,6 @@ export function BusinessOwnerSidebar({
         )}
       </div>
 
-      {/* Scrollable Navigation Items */}
       <nav className="bo-sidebar-nav">
         {menuSections.map((section, sIdx) => (
           <div key={sIdx} style={{ marginBottom: '10px' }}>
@@ -203,7 +188,6 @@ export function BusinessOwnerSidebar({
         ))}
       </nav>
 
-      {/* Bottom Footer: Sign Out Only (Image 1 "ចាកចេញ") */}
       <div className="bo-sidebar-footer">
         <button
           type="button"

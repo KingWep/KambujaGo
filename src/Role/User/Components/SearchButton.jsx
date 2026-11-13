@@ -2,16 +2,6 @@ import { useState } from "react";
 import { Search, X } from "lucide-react";
 import styles from "./SearchButton.module.css";
 
-/**
- * Reusable search box (CSS module).
- *
- * Props
- *  - value / onChange(text)   controlled mode (optional – works uncontrolled too)
- *  - onSubmit(text)           called on Enter or when the Search button is clicked
- *  - showButton               show the "Search" button next to the input
- *  - buttonLabel              text of that button
- *  - placeholder, width, disabled, autoFocus, className, ...rest (passed to <input>)
- */
 function SearchButton({
   value,
   onChange,

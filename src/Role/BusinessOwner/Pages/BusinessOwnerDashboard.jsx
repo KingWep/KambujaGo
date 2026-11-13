@@ -6,21 +6,11 @@ import QuickOperations from '../Components/QuickOperations';
 import PerformanceComparison from '../Components/PerformanceComparison';
 import BusinessAlerts from '../Components/BusinessAlerts';
 
-/**
- * Business Owner Dashboard Page
- *
- * Composes reusable dashboard components:
- * - BusinessOwnerHeader (operations banner)
- * - StatsGrid (8 metric cards)
- * - QuickOperations (actions)
- * - PerformanceComparison & BusinessAlerts (lower grid)
- */
 export function BusinessOwnerDashboard() {
   const navigate = useNavigate();
 
   return (
     <>
-      {/* Operations Header Banner from Image 2 */}
       <BusinessOwnerHeader
         badgeText="PARTNER OPERATIONS"
         title="Business Owner Dashboard"
@@ -29,10 +19,8 @@ export function BusinessOwnerDashboard() {
         onActionClick={() => alert('Create Business modal triggered')}
       />
 
-      {/* KPI Stats Grid */}
       <StatsGrid />
 
-      {/* Quick Operations Row */}
       <QuickOperations
         onAddRoom={() => navigate('/business-owner/stays')}
         onAddVehicle={() => navigate('/business-owner/fleet')}
@@ -40,7 +28,6 @@ export function BusinessOwnerDashboard() {
         onViewBookings={() => navigate('/business-owner/orders')}
       />
 
-      {/* Performance Comparison & Business Alerts */}
       <div
         style={{
           display: 'grid',

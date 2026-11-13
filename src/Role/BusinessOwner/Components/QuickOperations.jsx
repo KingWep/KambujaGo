@@ -1,9 +1,6 @@
 import React from 'react';
 import { BedIcon, FleetIcon, CalendarIcon, OrderIcon } from '../../../components/ui/Icons';
 
-/**
- * Reusable Quick Operations Component (matching Image 2)
- */
 export function QuickOperations({
   onAddRoom = () => {},
   onAddVehicle = () => {},

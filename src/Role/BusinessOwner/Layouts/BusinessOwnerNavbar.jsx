@@ -10,9 +10,7 @@ import {
 } from '../../../components/ui/Icons';
 import './BusinessOwner.css';
 
-/**
- * Business Owner Top Navbar Component
- */
+
 export function BusinessOwnerNavbar({
   pageTitle = 'Dashboard',
   pageSubtitle = 'Host operations overview',
@@ -55,7 +53,6 @@ export function BusinessOwnerNavbar({
 
   return (
     <header className="bo-navbar" aria-label="Top Navigation Bar">
-      {/* Left side: Mobile Hamburger + Page Title */}
       <div className="bo-navbar-left">
         <button
           type="button"
@@ -72,9 +69,7 @@ export function BusinessOwnerNavbar({
         </div>
       </div>
 
-      {/* Right side: Portal Switcher, Notifications, User Profile */}
       <div className="bo-navbar-right">
-        {/* Quick Link to Admin Portal */}
         <NavLink
           to="/admin"
           style={{
@@ -97,7 +92,6 @@ export function BusinessOwnerNavbar({
 
         {extraActions}
 
-        {/* Notifications Button & Dropdown */}
         <div style={{ position: 'relative' }}>
           <button
             type="button"
@@ -193,7 +187,6 @@ export function BusinessOwnerNavbar({
           )}
         </div>
 
-        {/* User Profile Avatar Dropdown */}
         <div style={{ position: 'relative' }}>
           <button
             type="button"

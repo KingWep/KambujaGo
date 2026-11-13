@@ -6,21 +6,14 @@ import BusinessPage from './page/BussinesPage';
 import AdminOverview from './page/AdminOverview';
 import PlaceholderPage from '../BusinessOwner/Pages/PlaceholderPage';
 
-/**
- * Admin Portal Sub-Router
- * Mounted at: /admin/*
- */
 function AdminRoutes() {
   return (
     <Routes>
       <Route element={<DashboardPage />}>
-        {/* /admin -> Overview Dashboard */}
         <Route index element={<AdminOverview />} />
         
-        {/* /admin/business */}
         <Route path="business" element={<BusinessPage />} />
 
-        {/* Placeholder / Feature sub-routes */}
         <Route
           path="orders"
           element={

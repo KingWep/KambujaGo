@@ -1,9 +1,6 @@
 import React from 'react';
 import Card from '../../../components/ui/Card';
 
-/**
- * Reusable Business Alerts Component (matching Image 2)
- */
 export function BusinessAlerts({
   alerts = [
     {

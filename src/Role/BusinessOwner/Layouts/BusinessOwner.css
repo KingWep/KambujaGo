@@ -29,10 +29,6 @@
   position: relative;
   overflow-x: hidden;
 }
-
-/* ========================================================
-   SIDEBAR (Clean Blue & White, Concept from Image 1)
-   ======================================================== */
 .bo-sidebar {
   position: fixed;
   top: 0;

@@ -4,9 +4,6 @@ import Button from '../../../../../components/ui/Button';
 import Badge from '../../../../../components/ui/Badge';
 import { FleetIcon, PlusIcon } from '../../../../../components/ui/Icons';
 
-/**
- * Transport Fleet Page (Fleet - Rides)
- */
 export function TransportPage() {
   const vehicles = [
     { id: 1, model: 'Toyota Alphard (VIP Van)', plate: '2BC-9981', driver: 'Sokha Meng', status: 'On Trip', badgeVariant: 'blue' },

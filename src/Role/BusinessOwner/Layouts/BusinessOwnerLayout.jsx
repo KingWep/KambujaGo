@@ -4,9 +4,6 @@ import BusinessOwnerSidebar from './BusinessOwnerSidebar';
 import BusinessOwnerNavbar from './BusinessOwnerNavbar';
 import './BusinessOwner.css';
 
-/**
- * Route metadata mapping for dynamic Navbar titles
- */
 const routeMeta = {
   '/business-owner': { title: 'Dashboard', subtitle: 'Host operations overview' },
   '/business-owner/dashboard': { title: 'Dashboard', subtitle: 'Host operations overview' },
@@ -21,12 +18,6 @@ const routeMeta = {
   '/business-owner/settings': { title: 'Account & Business Settings', subtitle: 'Configure payout methods, policies, and notifications' },
 };
 
-/**
- * BusinessOwnerLayout
- *
- * Master layout orchestrating the Sidebar, Navbar, and Content area.
- * Supports React Router <Outlet /> and automatic route-based titles.
- */
 export function BusinessOwnerLayout({
   children,
   pageTitle,
@@ -47,7 +38,6 @@ export function BusinessOwnerLayout({
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
 
-  // Determine current page title from props or active route
   const currentMeta = routeMeta[location.pathname] || {
     title: 'Dashboard',
     subtitle: 'Host operations overview',
@@ -58,7 +48,6 @@ export function BusinessOwnerLayout({
 
   return (
     <div className={`bo-layout-root ${collapsed ? 'is-collapsed' : ''}`}>
-      {/* Mobile Drawer Backdrop Overlay */}
       {isMobileOpen && (
         <div
           className="bo-mobile-overlay"
@@ -67,7 +56,6 @@ export function BusinessOwnerLayout({
         />
       )}
 
-      {/* Reusable Sidebar */}
       <BusinessOwnerSidebar
         brandName={brandName}
         collapsed={collapsed}
@@ -78,9 +66,7 @@ export function BusinessOwnerLayout({
         onLogout={onLogout}
       />
 
-      {/* Main Layout Container */}
       <div className="bo-layout-body">
-        {/* Reusable Top Navbar */}
         <BusinessOwnerNavbar
           pageTitle={finalTitle}
           pageSubtitle={finalSubtitle}
@@ -90,7 +76,6 @@ export function BusinessOwnerLayout({
           extraActions={navbarExtra}
         />
 
-        {/* Dynamic Main Page Content via Outlet or direct children */}
         <main className="bo-main-content">
           {children || <Outlet />}
         </main>

@@ -2,9 +2,7 @@ import React from 'react';
 import Card from '../../../components/ui/Card';
 import { StarIcon } from '../../../components/ui/Icons';
 
-/**
- * Reusable KPI Stats Grid for Business Owner Dashboard (matching Image 2)
- */
+
 export function StatsGrid({
   stats = {
     totalBusinesses: 4,
@@ -20,7 +18,6 @@ export function StatsGrid({
 }) {
   return (
     <>
-      {/* Top 4 KPI Cards */}
       <div
         style={{
           display: 'grid',
@@ -82,7 +79,6 @@ export function StatsGrid({
         </Card>
       </div>
 
-      {/* Second Row of 4 KPI Cards */}
       <div
         style={{
           display: 'grid',

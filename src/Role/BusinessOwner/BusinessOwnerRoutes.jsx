@@ -7,25 +7,17 @@ import RoomsPage from './Feature/Rooms/pages/RoomsPage';
 import TransportPage from './Feature/Transport/pages/TransportPage';
 import PlaceholderPage from './Pages/PlaceholderPage';
 
-/**
- * Business Owner Portal Sub-Router
- * Mounted at: /business-owner/*
- */
 function BusinessOwnerRoutes() {
   return (
     <Routes>
       <Route element={<BusinessOwnerLayout />}>
-        {/* /business-owner -> redirects to /business-owner/dashboard */}
         <Route index element={<Navigate to="dashboard" replace />} />
 
-        {/* Dashboard */}
         <Route path="dashboard" element={<BusinessOwnerDashboard />} />
 
-        {/* Feature routes */}
         <Route path="stays" element={<RoomsPage />} />
         <Route path="fleet" element={<TransportPage />} />
 
-        {/* Placeholder feature routes */}
         <Route
           path="orders"
           element={
