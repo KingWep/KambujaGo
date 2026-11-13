@@ -1,0 +1,491 @@
+/* Business Owner Sidebar & Navbar Styles - Blue and White (Inspired by Image 1 & 2) */
+
+:root {
+  --bo-primary: #0066ff;
+  --bo-primary-hover: #0052cc;
+  --bo-primary-dark: #0045b5;
+  --bo-primary-light: #2579ff;
+  --bo-primary-glow: rgba(0, 102, 255, 0.35);
+  
+  --bo-sidebar-bg: #0066ff;
+  --bo-sidebar-width: 250px;
+  --bo-sidebar-collapsed-width: 76px;
+  --bo-navbar-height: 70px;
+  
+  --bo-bg-surface: #f8fafc;
+  --bo-text-main: #0f172a;
+  --bo-text-muted: #64748b;
+  --bo-border: #e2e8f0;
+}
+
+/* Base Layout Wrapper */
+.bo-layout-root {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bo-bg-surface);
+  color: var(--bo-text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ========================================================
+   SIDEBAR (Clean Blue & White, Concept from Image 1)
+   ======================================================== */
+.bo-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--bo-sidebar-width);
+  background-color: var(--bo-sidebar-bg);
+  background-image: linear-gradient(180deg, #0066ff 0%, #0059e6 60%, #004ecc 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 24px rgba(0, 102, 255, 0.18);
+  user-select: none;
+}
+
+.bo-sidebar.is-collapsed {
+  width: var(--bo-sidebar-collapsed-width);
+}
+
+.bo-sidebar.is-collapsed .bo-sidebar-header {
+  padding: 20px 0;
+  justify-content: center;
+}
+
+.bo-sidebar.is-collapsed .bo-sidebar-nav {
+  padding: 12px 6px;
+}
+
+.bo-sidebar.is-collapsed .bo-nav-list {
+  align-items: center;
+}
+
+.bo-sidebar.is-collapsed .bo-nav-item-btn {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0 auto;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.bo-sidebar.is-collapsed .bo-sidebar-footer {
+  padding: 14px 6px;
+  justify-content: center;
+}
+
+.bo-sidebar.is-collapsed .bo-logout-btn {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0 auto;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+/* Protruding Half-Pill Collapse Tab on Right Border (Image 1) */
+.bo-sidebar-toggle-tab {
+  position: absolute;
+  left: 100%;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 64px;
+  background-color: #005ce6;
+  border: none;
+  border-radius: 0 16px 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 60;
+  padding: 0;
+  outline: none;
+}
+
+.bo-sidebar-toggle-tab:hover {
+  background-color: #004ecc;
+  width: 26px;
+}
+
+/* Top Header Profile & Brand (Exactly as in Image 1) */
+.bo-sidebar-header {
+  padding: 24px 18px 20px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  min-height: 80px;
+  box-sizing: border-box;
+}
+
+.bo-header-avatar-ring {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bo-header-avatar-ring img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bo-header-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.bo-brand-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.bo-user-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 3px;
+}
+
+/* Sidebar Nav Scroll Area */
+.bo-sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 14px 12px;
+}
+
+.bo-sidebar-nav::-webkit-scrollbar {
+  width: 4px;
+}
+.bo-sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+
+/* Category Section Titles (like ចម្បង / កាតាឡុក / ប្រព័ន្ធ in Image 1) */
+.bo-nav-section-title {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 16px 12px 6px 12px;
+}
+
+.bo-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Menu Item Button */
+.bo-nav-item-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.18s ease;
+  outline: none;
+  text-align: left;
+}
+
+.bo-nav-item-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Active Nav Item: Solid White Pill with Vibrant Blue Text (as in Image 2 / Image 1 shape) */
+.bo-nav-item-btn.is-active {
+  background-color: #ffffff;
+  color: var(--bo-primary);
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.bo-nav-item-btn.is-active .bo-nav-icon {
+  color: var(--bo-primary);
+}
+
+.bo-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  min-width: 22px;
+}
+
+.bo-nav-label {
+  white-space: nowrap;
+  flex: 1;
+  font-size: 14px;
+}
+
+.bo-nav-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.bo-nav-item-btn.is-active .bo-nav-badge {
+  background-color: var(--bo-primary);
+  color: #ffffff;
+}
+
+/* Bottom Sidebar: Clean Sign Out Button Only (Image 1 "ចាកចេញ") */
+.bo-sidebar-footer {
+  padding: 14px 12px 18px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+}
+
+.bo-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.bo-logout-btn:hover {
+  background-color: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+
+/* ========================================================
+   NAVBAR (Top Navigation Bar)
+   ======================================================== */
+.bo-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: var(--bo-sidebar-width);
+  height: var(--bo-navbar-height);
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--bo-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  z-index: 40;
+  transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.bo-layout-root.is-collapsed .bo-navbar {
+  left: var(--bo-sidebar-collapsed-width);
+}
+
+.bo-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bo-mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #1e293b;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.bo-page-title-box h1 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.bo-page-title-box p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 2px 0 0 0;
+}
+
+.bo-navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bo-nav-action-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--bo-border);
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.bo-nav-action-btn:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: var(--bo-primary);
+}
+
+.bo-notification-dot {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  border: 1.5px solid #ffffff;
+}
+
+.bo-navbar-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 10px 4px 4px;
+  border-radius: 9999px;
+  border: 1px solid var(--bo-border);
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.bo-navbar-profile-btn:hover {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+/* ========================================================
+   BODY & MAIN CONTENT
+   ======================================================== */
+.bo-layout-body {
+  flex: 1;
+  margin-left: var(--bo-sidebar-width);
+  margin-top: var(--bo-navbar-height);
+  min-height: calc(100vh - var(--bo-navbar-height));
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  width: calc(100% - var(--bo-sidebar-width));
+}
+
+.bo-layout-root.is-collapsed .bo-layout-body {
+  margin-left: var(--bo-sidebar-collapsed-width);
+  width: calc(100% - var(--bo-sidebar-collapsed-width));
+}
+
+.bo-main-content {
+  flex: 1;
+  padding: 24px 28px;
+  max-width: 1600px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .bo-mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bo-sidebar {
+    transform: translateX(-100%);
+    width: 250px !important;
+  }
+
+  .bo-sidebar.is-mobile-open {
+    transform: translateX(0);
+  }
+
+  .bo-sidebar-toggle-tab {
+    display: none;
+  }
+
+  .bo-navbar {
+    left: 0 !important;
+    padding: 0 16px;
+  }
+
+  .bo-layout-body {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .bo-main-content {
+    padding: 16px;
+  }
+
+  .bo-mobile-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 45;
+  }
+}

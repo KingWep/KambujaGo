@@ -1,47 +1,45 @@
 import React, { useState } from "react";
-import AdminSidebar from "../layouts/AdminSidebar";
-import AdminNavbar from "../layouts/AdminNavbar";
-import { Outlet ,useLocation} from "react-router-dom";
-
+import AdminSidebar from "../Layouts/AdminSidebar";
+import AdminNavbar from "../Layouts/AdminNavbar";
+import { Outlet, useLocation } from "react-router-dom";
 
 function DashboardPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const location = useLocation();
+
   const pageTitles = {
-    "/admin": "Dashboard",
-    "/admin/business": "Business",
+    "/admin": "Admin Dashboard",
+    "/admin/business": "Business Management",
     "/admin/orders": "Platform Orders",
-    "/admin/users": "User & Hotels",
-    "/admin/stays": "Stays/Hotels",
-    "/admin/vehicles": "Vehicles/Fleets",
+    "/admin/users": "User & Partner Accounts",
+    "/admin/stays": "Stays & Hotels",
+    "/admin/vehicles": "Vehicles & Fleets",
     "/admin/payout": "Escrow & Payout",
-    "/admin/analytics": "Analytics",
-    "/admin/disputes": "Disputes",
-    "/admin/reviews": "Reviews",
-    "/admin/locations": "Locations",
-    "/admin/broadcasts": "Broadcasts",
-    "/admin/settings": "Platform Config",
-    };
-  const title = pageTitles[location.pathname] || "Dashboard";
+    "/admin/analytics": "Platform Analytics",
+    "/admin/disputes": "Disputes & Support",
+    "/admin/reviews": "Customer Reviews",
+    "/admin/locations": "Locations & Destinations",
+    "/admin/broadcasts": "System Broadcasts",
+    "/admin/settings": "Platform Configuration",
+  };
+
+  const title = pageTitles[location.pathname] || "Admin Portal";
 
   return (
     <div className="flex min-h-screen bg-slate-50">
-
+      {/* Admin Sidebar */}
       <AdminSidebar isSidebarOpen={isSidebarOpen} />
 
-      <div className="min-w-0 flex-1">
+      {/* Main Content Area */}
+      <div className="min-w-0 flex-1 flex flex-col">
         <AdminNavbar
           title={title}
-          toggleSidebar={() =>
-            setIsSidebarOpen((prev) => !prev)
-          }
+          toggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
         />
-        <main className="p-6">
-          {/* {children} */}
-          <Outlet/>
+        <main className="p-6 flex-1">
+          <Outlet />
         </main>
       </div>
-
     </div>
   );
 }

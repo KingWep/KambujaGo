@@ -9,4 +9,3 @@ function App() {
   return isAdmin ? <AdminRoutes /> : <UserRoutes />
 }
 
-export default App
