@@ -5,7 +5,7 @@ import {
 
 function AdminNavbar({toggleSidebar,title}) {
   return (
-    <div className="h-24 bg-white border-b border-gray-200 flex items-center justify-between px-12">
+    <div className="h-24 bg-white border-b border-gray-200 flex items-center justify-between px-8">
       
       {/* LEFT SIDE */}
       <div className="flex items-center gap-8">
@@ -31,7 +31,6 @@ function AdminNavbar({toggleSidebar,title}) {
 
       </div>
 
-
       {/*  right */}
       <div className="flex items-center gap-8">
         {/* notification */}
@@ -46,7 +45,6 @@ function AdminNavbar({toggleSidebar,title}) {
           alt="Admin Profile"
           className="w-12 h-12 rounded-full border-2 border-purple-300 object-cover"
         />
-
       </div>
 
     </div>

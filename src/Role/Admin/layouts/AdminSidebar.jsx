@@ -23,12 +23,12 @@ function AdminSidebar({isSidebarOpen} ) {
   return (
     
     <div className={`min-h-screen  bg-blue-600 text-white transition-all duration-300
-          ${isSidebarOpen ? "w-72" : "w-20"}`} >
+          ${isSidebarOpen ? "w-72":"w-20"}`} >
       
-      <div className=' items-center gap-3 px-5'>
+      <div className='items-center gap-3 px-5'>
       
       <div className="flex items-center gap-3 mt-5">
-          <div>
+          <div className='bg-blue-500 p-2  rounded-2xl'>
             <Shield size={28} />
           </div>
             {isSidebarOpen && (
@@ -38,7 +38,7 @@ function AdminSidebar({isSidebarOpen} ) {
         )}
       </div>
 
-        <div className='mt-5'> 
+        <div className='mt-5 mb-2'> 
             <SidebarButton
   to="/admin"
   icon={LayoutDashboard}
@@ -136,27 +136,30 @@ function AdminSidebar({isSidebarOpen} ) {
       <hr className="border-t border-blue-500" />
 
       <div className='ms-7'>
-        <SidebarButton 
-          icon={Globe}
-          title="Public Marketplace"
-          active={false}
-          isSidebarOpen={isSidebarOpen}
-        />
-        <div className="ms-11 flex items-start justify-start gap-2 text-xs font-medium text-blue-200/80">
-        <a href="#facebook" className="hover:text-white transition-colors">
-          Facebook
-        </a>
-        <span>·</span>
-        <a href="#twitter" className="hover:text-white transition-colors">
-          Twitter
-        </a>
-        <span>·</span>
-        <a href="#google" className="hover:text-white transition-colors">
-          Google
-        </a>
+        <button className='flex items-center  gap-2 mt-5 mb-3 text-blue-200/90 hover:text-white text-sm'>
+          <Globe size={20}/>
+          {isSidebarOpen && (
+            <span className='flex items-center gap-3'>
+              {/* <Globe size={20} /> */}
+              Public Marketplace</span>
+          )}
+        </button>
+          {isSidebarOpen && (
+        <div className="ms-11 flex items-start justify-start gap-2 text-xs font-medium text-blue-200/80 mb-5">
+          <a href="#facebook" className="hover:text-white transition-colors">
+              Facebook
+          </a>
+          <span>·</span>
+          <a href="#twitter" className="hover:text-white transition-colors">
+            Twitter
+          </a>
+          <span>·</span>
+          <a href="#gmail" className="hover:text-white transition-colors">
+            Google
+          </a>
+          </div>
+          )}
         </div>
-        
-      </div>
       
     </div>
     

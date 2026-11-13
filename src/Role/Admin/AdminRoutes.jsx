@@ -1,7 +1,17 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-
+import AnalyticsPage from "./page/AnalyticsPage";
 import DashboardPage from "./page/DashboardPage";
 import BusinessPage from "./page/BussinesPage";
+import PlatformPage from "./page/PlatformPage";
+import UserPage from "./page/UserPage";
+import StayPage from "./page/StayPage";
+import VehiclesPage from "./page/VehiclesPage";
+import PayoutPage from "./page/PayoutPage";
+import Disputes from "./page/Disputes";
+import Reviews from "./page/Reviews";
+import Locations from "./page/Locations";
+import Broadcasts from "./page/Broadcasts";
+import Platform from "./page/Platform";
 
 function AdminRoutes() {
   return (
@@ -10,19 +20,19 @@ function AdminRoutes() {
       <Route path="/" element={<Navigate to="/admin" replace />} />
 
       <Route path="/admin" element={<DashboardPage />}>
-        <Route path="/admin/business" element={<BusinessPage />} />
+        {/* <Route path="/admin/business" element={<BusinessPage />} /> */}
         <Route path="business" element={<BusinessPage />} />
-        <Route path="orders" element={<h1>Platform Orders</h1>} />
-        <Route path="users" element={<h1>User & Hotels</h1>} />
-        <Route path="stays" element={<h1>Stays/Hotels</h1>} />
-        <Route path="vehicles" element={<h1>Vehicles/Fleets</h1>} />
-        <Route path="payout" element={<h1>Escrow & Payout</h1>} />
-        <Route path="analytics" element={<h1>Analytics</h1>} />
-        <Route path="disputes" element={<h1>Disputes</h1>} />
-        <Route path="reviews" element={<h1>Reviews</h1>} />
-        <Route path="locations" element={<h1>Locations</h1>} />
-        <Route path="broadcasts" element={<h1>Broadcasts</h1>} />
-        <Route path="settings" element={<h1>Platform Config</h1>} />
+        <Route path="orders" element={<PlatformPage/>} />
+        <Route path="users" element={<UserPage/>} />
+        <Route path="stays" element={<StayPage/>} />
+        <Route path="vehicles" element={<VehiclesPage/>} />
+        <Route path="payout" element={<PayoutPage/>} />
+        <Route path="analytics" element={<AnalyticsPage/>} />
+        <Route path="disputes" element={<Disputes/>} />
+        <Route path="reviews" element={<Reviews/>} />
+        <Route path="locations" element={<Locations/>} />
+        <Route path="broadcasts" element={<Broadcasts/>} />
+        <Route path="settings" element={<Platform/>} />
       </Route>
       {/* Page not found */}
       <Route path="*" element={<h1>404 - Page Not Found</h1>} />
